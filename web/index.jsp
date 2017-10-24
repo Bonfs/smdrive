@@ -1,9 +1,12 @@
+<%-- 
+    Document   : index
+    Created on : 24/10/2017, 17:12:42
+    Author     : bonfim
+--%>
+
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html lang="pt-br">
     <head>
         <title>SMDrive - Drive de Sistemas e Mídias Virtuais</title>
