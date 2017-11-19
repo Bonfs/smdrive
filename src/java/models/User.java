@@ -5,23 +5,49 @@
  */
 package models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  *
- * @author aluno
+ * @author bonfim
  */
+@Entity
 public class User {
-    private String ID;
+    
+    @Id @GeneratedValue
+    private Long id;
+    
+    @Column
     private String userName;
+    
+    @Column
     private String name;
+    
+    @Column
     private String email;
+    
+    @Column
     private String password;
 
-    public String getID() {
-        return ID;
+    public User() {
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public User(String userName, String name, String email, String password) {
+        this.userName = userName;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Long getID() {
+        return id;
+    }
+
+    public void setID(Long ID) {
+        this.id = ID;
     }
 
     public String getUserName() {

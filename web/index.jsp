@@ -23,20 +23,20 @@
                         <h1>SMDrive</h1>
                     </div>
                 </div>
-                <form class="">
-                        <div class="form-group">
-                            <span class="" id="basic-addon1">Username</span>
-                            <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-                        </div>
+                <s:form action="loginAction">
+                    <div class="form-group">
+                        <span class="" id="basic-addon1">Username</span>
+                        <s:textfield key="username"  class="form-control" placeholder="Username" aria-describedby="basic-addon1" />
+                    </div>
 
-                        <div class="form-group">
-                            <span class="" id="basic-addon1">Password</span>
-                            <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
-                        </div>
-                    <!--<button type="submit" class="btn btn-success">Sign in</button>-->
-                    <a class="btn btn-success" href="root.html">Sign up</a>
+                    <div class="form-group">
+                        <span class="" id="basic-addon1">Password</span>
+                        <s:textfield key="password"  type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1" />
+                    </div>
+                    <s:submit value="Sign in" type="submit" class="btn btn-success"/>
+                    <!--<a class="btn btn-success" href="root.html">Sign in</a>-->
                     <a class="btn btn-info" href="signup.html">Sign up</a>
-                </form>
+                </s:form>
             </div>
         </div>
         

@@ -5,6 +5,9 @@
 <struts>
     <constant name="struts.devMode" value="true" />
     <package name="default" extends="struts-default">
-        
+        <action name="loginAction" class="actions.LoginAction">
+            <result name="success">/root.jsp</result>
+            
+        </action>
     </package>
 </struts>
