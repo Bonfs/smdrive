@@ -5,19 +5,19 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.username">
-      root
+      postgres
     </property>
     <property name="hibernate.connection.password">
-      Abc12345!
+      ufc123
     </property>
     <property name="hibernate.connection.url">
-      jdbc:mysql://localhost/smdrive
+      jdbc:postgresql://localhost:5432/smdrive
     </property>
     <property name="hibernate.connection.driver_class">
-      com.mysql.jdbc.Driver
+      org.postgresql.Driver
     </property>
     <property name="hibernate.dialect">
-      org.hibernate.dialect.MySQLDialect
+      org.hibernate.dialect.PostgreSQLDialect
     </property>
   
     <property name="hibernate.hbm2ddl.auto">update</property>
