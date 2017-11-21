@@ -9,5 +9,10 @@
             <result name="success">/root.jsp</result>
             
         </action>
+        
+        <action name="signUpAction" class="actions.SignUpAction">
+            <result name="success">/root.jsp</result>
+            
+        </action>
     </package>
 </struts>

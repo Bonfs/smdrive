@@ -22,16 +22,16 @@ public class User {
     @Id @GeneratedValue
     private Long id;
     
-    @Column
+    @Column(nullable = false, unique = true, length = 20)
     private String userName;
     
-    @Column
+    @Column(nullable = false, length = 65)
     private String name;
     
-    @Column
+    @Column(nullable = false, unique = true, length = 45)
     private String email;
     
-    @Column
+    @Column(nullable = false, length = 32)
     private String password;
 
     public User() {

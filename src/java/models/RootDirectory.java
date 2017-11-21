@@ -12,7 +12,7 @@ import java.util.List;
  * @author aluno
  */
 public class RootDirectory extends Directory{
-    public final static int CAPACITY = 1000 * 1024;
+    public final static int CAPACITY = 100 * 1000 * 1024; // Em megabytes
             
     private String ID;
     private List<Directory> directories;
