@@ -25,18 +25,17 @@
                 </div>
                 <s:form action="loginAction">
                     <div class="form-group">
-                        <span class="" id="basic-addon1">Username</span>
                         <s:textfield key="usuario" name="usuario" class="form-control" placeholder="Username" aria-describedby="basic-addon1" />
                     </div>
-
                     <div class="form-group">
-                        <span class="" id="basic-addon1">Password</span>
                         <s:textfield key="password" name="password" type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1" />
                     </div>
+                    
                     <s:submit value="Sign in" type="submit" class="btn btn-success"/>
                     <!--<a class="btn btn-success" href="root.html">Sign in</a>-->
-                    <a class="btn btn-info" href="signup.jsp">Sign up</a>
+                    
                 </s:form>
+                    <a class="btn btn-info" href="signup.jsp">Sign up</a>
             </div>
         </div>
         

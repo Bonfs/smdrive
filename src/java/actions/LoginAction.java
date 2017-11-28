@@ -5,28 +5,33 @@
  */
 package actions;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.DatabaseDAO;
+import dao.LoginDAO;
+import java.util.Map;
 import models.User;
+import org.apache.struts2.dispatcher.SessionMap;
+import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author bonfim
  */
-public class LoginAction extends ActionSupport {
+public class LoginAction extends ActionSupport{
     private String usuario, password;
+    private SessionMap<String, Object> sessionMap;
     
     @Override
     public String execute() throws Exception {
         
-        User user = new User();
-        user.setUserName(usuario);
-        user.setPassword(password);
-        user.setEmail("matheusbonfim05@gmail.com");
-        user.setName("Bonfim");
+        sessionMap = (SessionMap) ActionContext.getContext().getSession();
         
+        User user = LoginDAO.validate(usuario, password);
         
-        if(DatabaseDAO.insert(user)){
+        if(user != null){
+            sessionMap.put("name", user.getName());
+            sessionMap.put("login", true);
             return "success";
         } else{
             return "false";
@@ -41,7 +46,15 @@ public class LoginAction extends ActionSupport {
         this.usuario = usuario;
     }
 
-    
+    public String logout() throws Exception{
+        sessionMap.invalidate();
+        sessionMap.put("name", null);
+        sessionMap.remove("name");
+        sessionMap.put("login", false);
+        sessionMap.remove("login");
+        sessionMap.entrySet();
+        return "logout";
+    }
 
     public String getPassword() {
         return password;
@@ -50,5 +63,20 @@ public class LoginAction extends ActionSupport {
     public void setPassword(String password) {
         this.password = password;
     }
-        
+
+    /*@Override
+    public void setSession(Map<String, Object> session) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.sessionMap = (SessionMap) session;
+    }*/
+
+    public SessionMap<String, Object> getSessionMap() {
+        return sessionMap;
+    }
+
+    public void setSessionMap(SessionMap<String, Object> sessionMap) {
+        this.sessionMap = sessionMap;
+    }
+    
+           
 }

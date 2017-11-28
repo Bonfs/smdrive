@@ -6,6 +6,7 @@
 package models;
 
 import java.util.List;
+import javax.persistence.ElementCollection;
 
 /**
  *
@@ -15,7 +16,10 @@ public class RootDirectory extends Directory{
     public final static int CAPACITY = 100 * 1000 * 1024; // Em megabytes
             
     private String ID;
+    
+    @ElementCollection
     private List<Directory> directories;
+    
     private int actualCapacity;
 
     public String getID() {
@@ -24,14 +28,6 @@ public class RootDirectory extends Directory{
 
     public void setID(String ID) {
         this.ID = ID;
-    }
-
-    public List<Directory> getDirectories() {
-        return directories;
-    }
-
-    public void setDirectories(List<Directory> directories) {
-        this.directories = directories;
     }
 
     public int getActualCapacity() {

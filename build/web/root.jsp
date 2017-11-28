@@ -53,6 +53,12 @@
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
+        
+        <s:property value="usuario" />
+        <s:if test="getSessionMap().get(\"login\")">
+            <p>djdjdhdhdhdhdh</p>
+        </s:if>
+        
         <div class="container-fluid">
            <ol class="breadcrumb">
                 <li><a href="#">root</a></li>

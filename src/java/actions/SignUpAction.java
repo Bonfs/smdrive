@@ -19,7 +19,7 @@ public class SignUpAction extends ActionSupport {
     @Override
     public String execute() throws Exception {
         User user = new User();
-        user.setUserName(name);
+        user.setUserName(username);
         user.setPassword(password);
         user.setEmail(email);
         user.setName(name);
