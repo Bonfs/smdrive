@@ -36,6 +36,8 @@
                     
                 </s:form>
                     <a class="btn btn-info" href="signup.jsp">Sign up</a>
+                    <s:url action="root" var="root" value="root" ></s:url>
+                    <a href="${root}">root</a>
             </div>
         </div>
         

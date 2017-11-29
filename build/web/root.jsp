@@ -65,44 +65,45 @@
                 <li><a href="#">subdirectory</a></li>
             </ol>
             
-            <div class="table-responsive">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>File Name</th>
-                      <th>Extension</th>
-                      <th>Size</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td></td>
-                          <td>Foto</td>
-                          <td>.png</td>
-                          <td>2MB</td>
-                      </tr>
-                      <tr>
-                          <td></td>
-                          <td>Documentos</td>
-                          <td>/</td>
-                          <td>10MB</td>
-                      </tr>
-                      <tr>
-                          <td></td>
-                          <td>Apostila</td>
-                          <td>.pdf</td>
-                          <td>0.5MB</td>
-                      </tr>
-                      <tr>
-                          <td></td>
-                          <td>foto</td>
-                          <td>.psd</td>
-                          <td>12MB</td>
-                      </tr>
-                  </tbody>
-                </table>
-            </div>
+            <s:if test="files.size() > 0">
+                <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>File Name</th>
+                          <th>Extension</th>
+                          <th>Size</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <s:iterator value="files" var="f">
+                              <tr>
+                                  <td></td>
+                                  <s:if test="#f.isDirectory()">
+                                      <td>
+                                          <s:url action="root" var="nextDirectory">
+                                              <s:param name="fileName"><s:property value="#f.getName()" /></s:param>
+                                              <s:param name="cPath"><s:property value="#f.getAbsolutePath()" /></s:param>
+                                          </s:url>
+                                          <a href="${nextDirectory}"><s:property value="#f.getName()" /></a>
+                                      </td>
+                                  </s:if>
+                                  <s:else>
+                                      <td><s:property value="#f.getName()" /></td>
+                                  </s:else>
+                                  
+                                  <td>.png</td>
+                                  <td><s:property value="#f.length()" /></td>
+                              </tr>
+                          </s:iterator>
+                      </tbody>
+                    </table>
+                </div>
+            </s:if>
+            <s:else>
+                <p>Você não tem nenhuma arquivo adicionado!</p>
+            </s:else>
         </div>
         
         <script src="js/jquery.min.js"></script>

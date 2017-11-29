@@ -4,6 +4,7 @@
   "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
     <constant name="struts.devMode" value="true" />
+    <constant name="struts.enable.SlashesInActionNames" value="true"/>
     <package name="default" extends="struts-default">
         <action name="loginAction" class="actions.LoginAction">
             <result name="success">/root.jsp</result>
@@ -12,6 +13,16 @@
         </action>
         
         <action name="signUpAction" class="actions.SignUpAction">
+            <result name="success">/root.jsp</result>
+            
+        </action>
+        
+        <action name="root" class="actions.RootAction">
+            <result name="success">/root.jsp</result>
+            
+        </action>
+        
+        <action name="root/*" class="actions.RootAction">
             <result name="success">/root.jsp</result>
             
         </action>
