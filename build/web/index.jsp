@@ -23,7 +23,7 @@
                         <h1>SMDrive</h1>
                     </div>
                 </div>
-                <s:form action="loginAction">
+                <s:form action="loginAction" method="POST">
                     <div class="form-group">
                         <s:textfield key="usuario" name="usuario" class="form-control" placeholder="Username" aria-describedby="basic-addon1" />
                     </div>

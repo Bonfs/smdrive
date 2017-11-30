@@ -11,7 +11,18 @@ $(document).ready(function(){
         //console.log(directoryName.length);
         //TODO validar o nome do diretório
         if(directoryName.length > 0 && directoryName != null){
-            window.location="root.action?newDirectory="+directoryName;
+            //window.location="newDirectory.action?newDirectory="+directoryName;
+            $("#newDirectoryName").val(directoryName);
+            document.forms.newDirectoryForm.submit();
+
         }
+    });
+    
+    $("#uploadFile").change(function(){
+        console.log('hshshs');
+        if($("#uploadFile").val() != null){
+            document.forms.uploadForm.submit();
+        }
+        
     });
 });

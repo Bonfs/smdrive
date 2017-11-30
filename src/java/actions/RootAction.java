@@ -16,18 +16,20 @@ import java.util.List;
  * @author bonfim
  */
 public class RootAction extends ActionSupport{
-    public static final String BASEROOT = "/home/bonfim/Documentos/rootDic";
+    public static final String BASEROOT = "/home/aluno/Documentos/rootDic";
+    //public static final String BASEROOT = "/home/bonfim/Documentos/rootDic";
     //public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
     
     private List<File> files;
     private String user;
     private String cPath, fileName, newDirectoryName;
-    
+       
     @Override
     public String execute() throws Exception {
         user = "loginFalso";
         File f = null;
         if (cPath == null){
+            cPath = BASEROOT;
             f = new File(BASEROOT);//+ username
         } else{
             f = new File(cPath);
@@ -80,6 +82,13 @@ public class RootAction extends ActionSupport{
     public void setUser(String user) {
         this.user = user;
     }
-           
+    
+    public String getNewDirectoryName() {
+        return newDirectoryName;
+    }
+
+    public void setNewDirectoryName(String newDirectoryName) {
+        this.newDirectoryName = newDirectoryName;
+    }           
     
 }

@@ -35,9 +35,21 @@
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NEW <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Load File</a></li>
+                        <li>
+                            <s:form id="uploadForm" action="upload" method="POST" enctype="multipart/form-data">
+                                <a href="#"><s:file key="fileUpload" label="Load File" size="100" id="uploadFile"></s:file></a>
+                            </s:form>
+                        </li>
                       <li role="separator" class="divider"></li>
-                      <li id="newDirectory"><a>Create Directory</a></li>
+                      <li id="newDirectory">
+                          <a href="#">Create Directory</a>
+                          <form id="newDirectoryForm" action="newDirectory" method="POST">
+                              <s:hidden key="newDirectoryName" name="newDirectoryName" />
+                              <s:hidden key="cPath" name="cPath" value="%{cPath}" ></s:hidden>
+                          </form>
+                              
+                          </form>
+                      </li>
                     </ul>
                   </li>
                 </ul>
@@ -89,7 +101,7 @@
                                               <s:param name="fileName"><s:property value="#f.getName()" /></s:param>
                                               <s:param name="cPath"><s:property value="#f.getAbsolutePath()" /></s:param>
                                           </s:url>
-                                          <a href="${nextDirectory}"><s:property value="#f.getName()" /></a>
+                                          /<a href="${nextDirectory}"><s:property value="#f.getName()" /></a>
                                       </td>
                                   </s:if>
                                   <s:else>

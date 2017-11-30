@@ -5,6 +5,8 @@
 <struts>
     <constant name="struts.devMode" value="true" />
     <constant name="struts.enable.SlashesInActionNames" value="true"/>
+    <constant name="struts.multipart.maxSize" value="104857600" />
+    
     <package name="default" extends="struts-default">
         <action name="loginAction" class="actions.LoginAction">
             <result name="success" type="redirectAction">root</result>
@@ -28,7 +30,9 @@
         </action>
         
         <action name="newDirectory" class="actions.RootAction" method="createDirectory">
-            <result name="success">/root.jsp</result>
+            <result name="success" type="redirectAction">root</result>
+            <result name="asadad">/404.jsp</result>
+            <result name="error">/404.jsp</result>
             
         </action>
         
@@ -40,6 +44,10 @@
             </result>
             
             <result name="error">/404.jsp</result>
+        </action>
+        
+        <action name="upload" class="actions.UploadAction">
+            <result name="success" type="redirectAction">root</result>
         </action>
     </package>
 </struts>
