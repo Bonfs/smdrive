@@ -6,6 +6,7 @@
 package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import dao.ArquivoDAO;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +16,16 @@ import java.util.List;
  * @author bonfim
  */
 public class RootAction extends ActionSupport{
-    public static final String BASEROOT = "/home/bonfim/Documentos/rootDic";
+    //public static final String BASEROOT = "/home/bonfim/Documentos/rootDic";
+    public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
     
     private List<File> files;
-    private String cPath, fileName;
+    private String user;
+    private String cPath, fileName, newDirectoryName;
     
     @Override
     public String execute() throws Exception {
+        user = "sjsjsjsjs";
         File f = null;
         if (cPath == null){
             f = new File(BASEROOT);//+ username
@@ -37,6 +41,14 @@ public class RootAction extends ActionSupport{
         return "success";
     }
 
+    public String createDirectory() throws Exception{
+        if(ArquivoDAO.addDirectory(cPath, newDirectoryName)){
+            return "success";
+        }else{
+            return "error";
+        }
+    }
+    
     public List<File> getFiles() {
         return files;
     }
@@ -60,5 +72,14 @@ public class RootAction extends ActionSupport{
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
            
+    
 }

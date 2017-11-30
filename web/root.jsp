@@ -37,7 +37,7 @@
                     <ul class="dropdown-menu">
                       <li><a href="#">Load File</a></li>
                       <li role="separator" class="divider"></li>
-                      <li><a href="#">Create Directory</a></li>
+                      <li id="newDirectory"><a>Create Directory</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -54,14 +54,17 @@
             </div><!-- /.container-fluid -->
         </nav>
         
-        <s:property value="usuario" />
+        <s:property value="user" />
         <s:if test="getSessionMap().get(\"login\")">
-            <p>djdjdhdhdhdhdh</p>
+            <p>usuário logado</p>
         </s:if>
         
         <div class="container-fluid">
            <ol class="breadcrumb">
-                <li><a href="#">root</a></li>
+                <li>
+                    <s:url action="root" var="root" value="root" ></s:url>
+                    <a href="${root}">root</a>
+                </li>
                 <li><a href="#">subdirectory</a></li>
             </ol>
             
@@ -108,5 +111,6 @@
         
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

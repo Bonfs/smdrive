@@ -7,7 +7,7 @@
     <constant name="struts.enable.SlashesInActionNames" value="true"/>
     <package name="default" extends="struts-default">
         <action name="loginAction" class="actions.LoginAction">
-            <result name="success">/root.jsp</result>
+            <result name="success" type="redirectAction">root</result>
             <result name="false">/signup.jsp</result>
             
         </action>
@@ -23,6 +23,11 @@
         </action>
         
         <action name="root/*" class="actions.RootAction">
+            <result name="success">/root.jsp</result>
+            
+        </action>
+        
+        <action name="newDirectory" class="actions.RootAction" method="createDirectory">
             <result name="success">/root.jsp</result>
             
         </action>
