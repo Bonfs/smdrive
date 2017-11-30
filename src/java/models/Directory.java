@@ -14,7 +14,7 @@ import java.util.List;
 public class Directory {
     private RootDirectory rootDirectory;
     private String path;
-    private List<File> files;
+    private List<Arquivo> files;
 
     public String getPath() {
         return path;
@@ -24,11 +24,11 @@ public class Directory {
         this.path = path;
     }
 
-    public List<File> getFiles() {
+    public List<Arquivo> getFiles() {
         return files;
     }
 
-    public void setFiles(List<File> files) {
+    public void setFiles(List<Arquivo> files) {
         this.files = files;
     }
 }

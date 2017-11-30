@@ -8,7 +8,7 @@
     <package name="default" extends="struts-default">
         <action name="loginAction" class="actions.LoginAction">
             <result name="success" type="redirectAction">root</result>
-            <result name="false">/signup.jsp</result>
+            <result name="false">/index.jsp</result>
             
         </action>
         
@@ -30,6 +30,16 @@
         <action name="newDirectory" class="actions.RootAction" method="createDirectory">
             <result name="success">/root.jsp</result>
             
+        </action>
+        
+        <action name="download" class="actions.DownloadAction">
+            <result name="success" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+            </result>
+            
+            <result name="error">/404.jsp</result>
         </action>
     </package>
 </struts>

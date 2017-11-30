@@ -9,7 +9,7 @@ package models;
  *
  * @author aluno
  */
-public class File {
+public class Arquivo {
     private int ID;
     private int size;
     private String path;

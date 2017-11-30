@@ -93,7 +93,10 @@
                                       </td>
                                   </s:if>
                                   <s:else>
-                                      <td><s:property value="#f.getName()" /></td>
+                                      <s:url action="download" var="downloadParams">
+                                          <s:param name="filePath"><s:property value="#f.getAbsolutePath()" /></s:param>
+                                      </s:url>
+                                      <td><a href="${downloadParams}"><s:property value="#f.getName()" /></a></td>
                                   </s:else>
                                   
                                   <td>.png</td>

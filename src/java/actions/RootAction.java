@@ -16,8 +16,8 @@ import java.util.List;
  * @author bonfim
  */
 public class RootAction extends ActionSupport{
-    //public static final String BASEROOT = "/home/bonfim/Documentos/rootDic";
-    public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
+    public static final String BASEROOT = "/home/bonfim/Documentos/rootDic";
+    //public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
     
     private List<File> files;
     private String user;
@@ -25,7 +25,7 @@ public class RootAction extends ActionSupport{
     
     @Override
     public String execute() throws Exception {
-        user = "sjsjsjsjs";
+        user = "loginFalso";
         File f = null;
         if (cPath == null){
             f = new File(BASEROOT);//+ username
