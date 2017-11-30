@@ -29,7 +29,7 @@ public class RootAction extends ActionSupport{
         user = "loginFalso";
         File f = null;
         if (cPath == null){
-            cPath = BASEROOT;
+            cPath = BASEROOT;//+ username
             f = new File(BASEROOT);//+ username
         } else{
             f = new File(cPath);
