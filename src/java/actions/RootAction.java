@@ -16,9 +16,9 @@ import java.util.List;
  * @author bonfim
  */
 public class RootAction extends ActionSupport{
-    public static final String BASEROOT = "/home/aluno/Documentos/rootDic";
+    //public static final String BASEROOT = "/home/aluno/Documentos/rootDic";
     //public static final String BASEROOT = "/home/bonfim/Documentos/rootDic";
-    //public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
+    public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
     
     private List<File> files;
     private String user;

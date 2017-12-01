@@ -18,7 +18,7 @@ public class ArquivoDAO {
     
     public static boolean addDirectory(String path, String directoryName) throws URISyntaxException{
         //URI uri = new URI(path+"\\"+directoryName);
-        File directory = new File(path+"/"+directoryName);
+        File directory = new File(path+"\\"+directoryName);
         if(!directory.exists()){
             return directory.mkdir();
         } else{

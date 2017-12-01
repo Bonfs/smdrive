@@ -13,10 +13,16 @@
     </head>
     <body>
         <h1>New directory</h1>
-        <s:form id="newDirectory" action="newDirectory">
+        <!--<s:form id="newDirectory" action="newDirectory">
             <s:textfield key="newDirectoryName" name="newDirectoryName" class="form-control" placeholder="diretorio" aria-describedby="basic-addon1" />
             <s:hidden key="cPath" name="cPath" value="/home/aluno/Documentos/rootDic/" />
             <s:submit value="criar" type="submit" class="btn btn-success"/>
+        </s:form>-->
+        
+        <s:form id="uploadForm" action="upload" enctype="multipart/form-data">
+            <s:file name="fileUpload" label="Load File" id="fileUpload" />
+            <s:hidden key="cPath" name="cPath" value="C:\\Users\\mathe\\Documents\\rootDic" ></s:hidden>
+            <s:submit value="enviar" type="submit" class="btn btn-success"/>
         </s:form>
     </body>
 </html>

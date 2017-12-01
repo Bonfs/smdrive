@@ -7,6 +7,9 @@ package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
 
 /**
@@ -14,29 +17,37 @@ import org.apache.commons.io.FileUtils;
  * @author bonfim
  */
 public class UploadAction extends ActionSupport{
-    public static final String BASEROOT = "/home/aluno/Documentos/rootDic";
+    //public static final String BASEROOT = "/home/aluno/Documentos/rootDic";
+    public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
     
-    public File fileUpload;
-    public String fileUploadContentType;
-    public String fileUploadName, filePath;
+    private File uf;
+    private String fileUploadContentType;
+    private String fileUploadName, cPath;
     
     @Override
-    public String execute() throws Exception {
-        if(filePath == null){
-            filePath = BASEROOT;
+    public String execute()  {        
+        try {
+            File newFile = new File(BASEROOT+"\\"+uf.getName());
+            FileUtils.copyFile(uf, newFile);
+        } catch (IOException ex) {
+            Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
+            return "error";
+        } catch (NullPointerException npe){
+            System.out.println(npe.getMessage());
+            return "error";
         }
-        File newFile = new File(filePath, fileUpload.getName());
-        FileUtils.copyFile(fileUpload, newFile);
         return "success";
+    }   
+
+    public File getUf() {
+        return uf;
     }
 
-    public File getFileUpload() {
-        return fileUpload;
+    public void setUf(File uf) {
+        this.uf = uf;
     }
-
-    public void setFileUpload(File fileUpload) {
-        this.fileUpload = fileUpload;
-    }
+    
+    
 
     public String getFileUploadContentType() {
         return fileUploadContentType;
@@ -44,14 +55,6 @@ public class UploadAction extends ActionSupport{
 
     public void setFileUploadContentType(String fileUploadContentType) {
         this.fileUploadContentType = fileUploadContentType;
-    }
-
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
     }
     
     public String getFileUploadName() {
@@ -62,6 +65,13 @@ public class UploadAction extends ActionSupport{
         this.fileUploadName = fileUploadName;
     }
 
+    public String getcPath() {
+        return cPath;
+    }
+
+    public void setcPath(String cPath) {
+        this.cPath = cPath;
+    }     
     
     
     

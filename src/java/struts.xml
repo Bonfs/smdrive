@@ -5,7 +5,8 @@
 <struts>
     <constant name="struts.devMode" value="true" />
     <constant name="struts.enable.SlashesInActionNames" value="true"/>
-    <constant name="struts.multipart.maxSize" value="104857600" />
+    <constant name="struts.multipart.maxSize" value="53477376" />
+    <constant name="struts.multipart.parser" value="jakarta-stream" />
     
     <package name="default" extends="struts-default">
         <action name="loginAction" class="actions.LoginAction">
@@ -47,7 +48,15 @@
         </action>
         
         <action name="upload" class="actions.UploadAction">
+            <interceptor-ref name="basicStack"/>
+            <interceptor-ref name="fileUpload">
+                    <param name="maximumSize">70000</param>
+            </interceptor-ref>
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">image/jpeg,image/gif,image/jpg,image/png</param>
+            </interceptor-ref> 
             <result name="success" type="redirectAction">root</result>
+            <result name="error">/index.jsp</result>
         </action>
     </package>
 </struts>

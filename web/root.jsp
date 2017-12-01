@@ -37,7 +37,8 @@
                     <ul class="dropdown-menu">
                         <li>
                             <s:form id="uploadForm" action="upload" method="POST" enctype="multipart/form-data">
-                                <a href="#"><s:file key="fileUpload" label="Load File" size="100" id="uploadFile"></s:file></a>
+                                <a href="#"><s:file key="fileUpload" name="fileUpload" label="Load File" size="20" id="uploadFile"></s:file></a>
+                                <s:hidden key="cPath" name="cPath" value="%{cPath}" ></s:hidden>
                             </s:form>
                         </li>
                       <li role="separator" class="divider"></li>
@@ -46,8 +47,6 @@
                           <form id="newDirectoryForm" action="newDirectory" method="POST">
                               <s:hidden key="newDirectoryName" name="newDirectoryName" />
                               <s:hidden key="cPath" name="cPath" value="%{cPath}" ></s:hidden>
-                          </form>
-                              
                           </form>
                       </li>
                     </ul>
