@@ -5,11 +5,13 @@
  */
 package actions;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.ArquivoDAO;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.struts2.dispatcher.SessionMap;
 
 /**
  *
@@ -18,14 +20,17 @@ import java.util.List;
 public class RootAction extends ActionSupport{
     //public static final String BASEROOT = "/home/aluno/Documentos/rootDic";
     //public static final String BASEROOT = "/home/bonfim/Documentos/rootDic";
-    public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
+    //public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
+    public static final String BASEROOT = "C:\\Users\\369909.UFCVIRTUAL\\Documents\\rootDic";
     
     private List<File> files;
     private String user;
     private String cPath, fileName, newDirectoryName;
+    private SessionMap<String, Object> sessionMap;
        
     @Override
     public String execute() throws Exception {
+        sessionMap = (SessionMap) ActionContext.getContext().getSession();
         user = "loginFalso";
         File f = null;
         if (cPath == null){

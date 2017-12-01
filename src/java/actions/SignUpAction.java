@@ -7,6 +7,7 @@ package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import dao.DatabaseDAO;
+import java.io.File;
 import models.User;
 
 /**
@@ -14,6 +15,7 @@ import models.User;
  * @author aluno
  */
 public class SignUpAction extends ActionSupport {
+    public static final String BASEROOT = "C:\\Users\\369909.UFCVIRTUAL\\Documents\\rootDic";
     private String name, username, email, password, confirmPassword;
     
     @Override
@@ -26,6 +28,8 @@ public class SignUpAction extends ActionSupport {
         
         
         if(DatabaseDAO.insert(user)){
+            File newRootDirectory = new File(BASEROOT, user.getUserName());
+            newRootDirectory.mkdir();
             return "success";
         } else{
             return "false";

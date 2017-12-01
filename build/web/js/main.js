@@ -7,7 +7,7 @@
 $(document).ready(function(){
     //console.log('ready');
     $("#newDirectory").click(function(){
-        let directoryName = prompt("Qual o nome da nova da pasta?");
+        var directoryName = prompt("Qual o nome da nova da pasta?");
         //console.log(directoryName.length);
         //TODO validar o nome do diretório
         if(directoryName.length > 0 && directoryName != null){

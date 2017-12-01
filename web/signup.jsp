@@ -25,31 +25,26 @@
                 </div>
                 
                 <s:form action="signUpAction">
-                    <div class="form-group">
-                        <span class="" id="basic-addon1">Name</span>
+                    <div class="form-group">                        
                         <s:textfield key="name" name="name" type="text" class="form-control" placeholder="Name" aria-describedby="basic-addon1" />
                     </div>
 
-                    <div class="form-group">
-                        <span class="" id="basic-addon1">Username</span>
+                    <div class="form-group">                        
                         <s:textfield key="username" key="username" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" />
                     </div>
 
-                    <div class="form-group">
-                        <span class="" id="basic-addon1">Email</span>
+                    <div class="form-group">                        
                         <s:textfield key="email" name="email" type="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1" />
                     </div>
 
-                    <div class="form-group">
-                        <span class="" id="basic-addon1">Password</span>
+                    <div class="form-group">                        
                         <s:textfield key="password" name="password" type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1" />
                     </div>
 
-                    <div class="form-group">
-                        <span class="" id="basic-addon1">Confirm Password</span>
+                    <div class="form-group">                        
                         <s:textfield key="confirmPassword" name="confirmPassword" type="password" class="form-control" placeholder="Confirm Password" aria-describedby="basic-addon1" />
                     </div>
-                            <s:submit value="Registrar" type="submit" class="btn btn-success" />
+                        <s:submit value="Registrar" type="submit" class="btn btn-success" />
                 </s:form>
             </div>
         </div>
