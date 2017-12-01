@@ -20,7 +20,7 @@
         </s:form>-->
         
         <s:form id="uploadForm" action="upload" enctype="multipart/form-data">
-            <s:file name="fileUpload" label="Load File" id="fileUpload" />
+            <s:file key="fileUpload" name="fileUpload" label="Load File" id="fileUpload" />
             <s:hidden key="cPath" name="cPath" value="C:\\Users\\mathe\\Documents\\rootDic" ></s:hidden>
             <s:submit value="enviar" type="submit" class="btn btn-success"/>
         </s:form>
