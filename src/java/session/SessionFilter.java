@@ -26,7 +26,8 @@ public class SessionFilter implements Filter{
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        request.setCharacterEncoding("UTF-8");
+        chain.doFilter(request, response);
     }
 
     @Override

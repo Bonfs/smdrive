@@ -33,13 +33,13 @@ $(document).ready(function(){
        
        if(user.length == 0 || password.length == 0){
            //console.log($("#errorMsgLogin").text());
-           $("#errorMsgLogin").text("Todos os Campos devem ser preenchidos!!!")
+           $("#errorMsgLogin").text("Todos os Campos devem ser preenchidos!!!");
            $("#errorMsgLogin").removeClass("hidden");
        } else if(user.length < 4){
-           $("#errorMsgLogin").text("Login muito curto")
+           $("#errorMsgLogin").text("Login muito curto");
            $("#errorMsgLogin").removeClass("hidden");
        } else if(password.length < 4){
-           $("#errorMsgLogin").text("Senha muito curta")
+           $("#errorMsgLogin").text("Senha muito curta");
            $("#errorMsgLogin").removeClass("hidden");
        }  else{
            $("#errorMsgLogin").addClass("hidden");
@@ -53,9 +53,24 @@ $(document).ready(function(){
        var email = $("#emailSignUp").val();
        var password = $("#passwordSignUp").val();
        var confirmPassword = $("#confirmPassSignUp").val();
+       var emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+       console.log(user.length);
        
-       if(name.length = 0){
-           
+       if(name.length == 0 || user.length == 0 || email.length == 0 || password.length == 0 || confirmPassword.length == 0){
+           $("#errorMsgSignUp").text("Todos os Campos devem ser preenchidos!!!").removeClass("hidden");
+       } else if(name.length < 3){
+           $("#errorMsgSignUp").text("Nome muito curto, ele deve conter pelo menos 4 caracteres.").removeClass("hidden");
+       } else if(user.length < 4){
+           $("#errorMsgSignUp").text("Login muito curto, ele deve conter pelo menos 4 caracteres.").removeClass("hidden");
+       } else if(!emailRegex.test(email)){
+           $("#errorMsgSignUp").text("Email inválido.").removeClass("hidden");
+       } else if(password.length < 4){
+           $("#errorMsgSignUp").text("Senha muito curta").removeClass("hidden");
+       } else if(password != confirmPassword){
+           $("#errorMsgSignUp").text("O campo de Senha e Confirmar Senha devem ser iguais.").removeClass("hidden");
+       } else{
+           $("#errorMsgSignUp").addClass("hidden");
+           document.forms.signUpForm.submit();
        }
        
     });

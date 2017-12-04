@@ -13,6 +13,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
+        
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
     </head>
@@ -24,7 +25,7 @@
                         <h1>SMDrive</h1>
                     </div>
                 </div>
-                
+                <div id="errorMsgSignUp" class="hidden alert alert-danger" role="alert">Usuário ou senha inválidos!!!</div>
                 <s:form id="signUpForm" action="signUpAction">
                     <div class="form-group">                        
                         <s:textfield id="nameSignUp" key="Nome" name="name" type="text" class="form-control" placeholder="Nome" aria-describedby="basic-addon1" />
