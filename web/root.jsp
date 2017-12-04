@@ -73,7 +73,9 @@
         <div class="container-fluid">
            <ol class="breadcrumb">
                 <li>
-                    <s:url action="root" var="root" value="root" ></s:url>
+                    <s:url action="root" var="root" value="root" >
+                        
+                    </s:url>
                     <a href="${root}">root</a>
                 </li>
                 <li><a href="#">subdirectory</a></li>

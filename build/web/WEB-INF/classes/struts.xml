@@ -16,7 +16,7 @@
         </action>
         
         <action name="signUpAction" class="actions.SignUpAction">
-            <result name="success">/root.jsp</result>
+            <result name="success" type="redirectAction">root</result>
             
         </action>
         
@@ -32,7 +32,6 @@
         
         <action name="newDirectory" class="actions.RootAction" method="createDirectory">
             <result name="success" type="redirectAction">root</result>
-            <result name="asadad">/404.jsp</result>
             <result name="error">/404.jsp</result>
             
         </action>

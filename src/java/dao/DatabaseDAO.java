@@ -5,6 +5,10 @@
  */
 package dao;
 
+import java.util.List;
+
+import models.User;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateUtil;
@@ -18,9 +22,33 @@ public class DatabaseDAO {
     public static boolean insert(Object obj){
         Session session = HibernateUtil.getSession();
         Transaction tx = session.beginTransaction();
-        session.save(obj);        
+        session.saveOrUpdate(obj);        
         tx.commit();
         return true;
+    }
+    
+    public static User getUserByUsername(String username){
+        User user = null;
+        Session session = HibernateUtil.getSession();
+        Transaction tx = session.beginTransaction();
+        //String sql = "SELECT * FROM User, RootDirectory WHERE username = :username";
+        Query query = session.createQuery("FROM User WHERE username = :username", User.class);
+        //Query query = session.createSQLQuery(sql);
+        query.setParameter("username", username);
+        List<Object> list = null;
+        try{
+            
+            user = (User) query.getSingleResult();
+            list = query.list();
+            
+            tx.commit();
+        } catch(Exception e){
+            user = null;
+            tx.rollback();
+        }
+        session.close();
+        System.out.println(user.getRootDirectory().getPath());
+        return user;
     }
     
     public boolean read(){

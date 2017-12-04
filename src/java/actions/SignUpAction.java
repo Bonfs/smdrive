@@ -5,32 +5,50 @@
  */
 package actions;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.DatabaseDAO;
 import java.io.File;
+import java.util.ArrayList;
+import models.Arquivo;
+import models.RootDirectory;
 import models.User;
+import org.apache.struts2.dispatcher.SessionMap;
 
 /**
  *
  * @author aluno
  */
 public class SignUpAction extends ActionSupport {
-    public static final String BASEROOT = "C:\\Users\\369909.UFCVIRTUAL\\Documents\\rootDic";
+    public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
     private String name, username, email, password, confirmPassword;
+    private SessionMap<String, Object> sessionMap;
     
     @Override
     public String execute() throws Exception {
+        sessionMap = (SessionMap) ActionContext.getContext().getSession();
+        
         User user = new User();
         user.setUserName(username);
         user.setPassword(password);
         user.setEmail(email);
         user.setName(name);
+        File newRootDirectory = new File(BASEROOT, user.getUserName());
+                        
+        RootDirectory root = new RootDirectory();
+        root.setActualCapacity(0);
+        root.setPath(newRootDirectory.getPath());
+        root.setFiles(new ArrayList<Arquivo>());
+        
+        user.setRootDirectory(root);
         
         
         if(DatabaseDAO.insert(user)){
-            File newRootDirectory = new File(BASEROOT, user.getUserName());
-            newRootDirectory.mkdir();
-            return "success";
+            sessionMap.put("user", user.getUserName());
+            sessionMap.put("login", true);
+                newRootDirectory.mkdir();
+                return "success";
+            
         } else{
             return "false";
         }

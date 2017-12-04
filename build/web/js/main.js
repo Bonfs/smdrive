@@ -25,4 +25,38 @@ $(document).ready(function(){
         }
         
     });
+    
+    $("#btnSignIn").click(function(){
+       var user = $("#userSignin").val();
+       var password = $("#passwordSignin").val();
+       console.log(password.length);
+       
+       if(user.length == 0 || password.length == 0){
+           //console.log($("#errorMsgLogin").text());
+           $("#errorMsgLogin").text("Todos os Campos devem ser preenchidos!!!")
+           $("#errorMsgLogin").removeClass("hidden");
+       } else if(user.length < 4){
+           $("#errorMsgLogin").text("Login muito curto")
+           $("#errorMsgLogin").removeClass("hidden");
+       } else if(password.length < 4){
+           $("#errorMsgLogin").text("Senha muito curta")
+           $("#errorMsgLogin").removeClass("hidden");
+       }  else{
+           $("#errorMsgLogin").addClass("hidden");
+           document.forms.loginForm.submit();
+       }
+    });
+    
+    $("#btnSignUp").click(function(){
+       var name = $("#nameSignUp").val();
+       var user = $("#usernameSignUp").val();
+       var email = $("#emailSignUp").val();
+       var password = $("#passwordSignUp").val();
+       var confirmPassword = $("#confirmPassSignUp").val();
+       
+       if(name.length = 0){
+           
+       }
+       
+    });
 });

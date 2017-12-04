@@ -21,6 +21,7 @@ import org.apache.struts2.interceptor.SessionAware;
 public class LoginAction extends ActionSupport{
     private String usuario, password;
     private SessionMap<String, Object> sessionMap;
+    private boolean error;
     
     @Override
     public String execute() throws Exception {
@@ -30,10 +31,11 @@ public class LoginAction extends ActionSupport{
         User user = LoginDAO.validate(usuario, password);
         
         if(user != null){
-            sessionMap.put("name", user.getName());
+            sessionMap.put("user", user.getUserName());
             sessionMap.put("login", true);
             return "success";
         } else{
+            error = true;
             return "false";
         }
     }
@@ -77,6 +79,13 @@ public class LoginAction extends ActionSupport{
     public void setSessionMap(SessionMap<String, Object> sessionMap) {
         this.sessionMap = sessionMap;
     }
+
+    public boolean isError() {
+        return error;
+    }
+
+    public void setError(boolean error) {
+        this.error = error;
+    }
     
-           
 }

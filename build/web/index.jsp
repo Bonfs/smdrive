@@ -14,6 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
         <div class="container-fluid row" >
@@ -23,25 +24,36 @@
                         <h1>SMDrive</h1>
                     </div>
                 </div>
-                <s:form action="loginAction" method="POST">
-                    <div class="form-group">
-                        <s:textfield key="usuario" name="usuario" class="form-control" placeholder="Username" aria-describedby="basic-addon1" />
-                    </div>
-                    <div class="form-group">
-                        <s:textfield key="password" name="password" type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1" />
-                    </div>
+                <s:if test="error">
+                    <div id="errorMsgLogin" class="alert alert-danger" role="alert">Usuário ou senha inválidos!!!</div>
+                </s:if>
+                <div id="errorMsgLogin" class="hidden alert alert-danger" role="alert">Usuário ou senha inválidos!!!</div>
+                <div class="row">
+                    <s:form id="loginForm" action="loginAction" method="POST">
+                        <div class="form-group">
+                            <s:textfield id="userSignin" key="Usuario" name="usuario" class="form-control" placeholder="Login" aria-describedby="basic-addon1" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <s:textfield id="passwordSignin" key="Password" name="password" type="password" class="form-control" placeholder="Senha" aria-describedby="basic-addon1" required="required" />
+                        </div>
+
+                        <!--<s:submit value="Sign in" type="submit" class="btn btn-success"/>-->
+
+                        <!--<a class="btn btn-success" href="root.html">Sign in</a>-->
+
+                    </s:form>
+                </div>
+                </br>
+                <div class="row">
+                    <button id="btnSignIn" type="button" class="btn btn-success">Logar</button>
+                    <a class="btn btn-info" href="signup.jsp">Cadastrar-se</a>
+                </div>
                     
-                    <s:submit value="Sign in" type="submit" class="btn btn-success"/>
-                    <!--<a class="btn btn-success" href="root.html">Sign in</a>-->
-                    
-                </s:form>
-                    <a class="btn btn-info" href="signup.jsp">Sign up</a>
-                    <s:url action="root" var="root" value="root" ></s:url>
-                    <a href="${root}">root</a>
             </div>
         </div>
         
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

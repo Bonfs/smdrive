@@ -9,11 +9,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>Sign up</title>
+        <title>Cadastro</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
         <div class="container-fluid row" >
@@ -24,32 +25,37 @@
                     </div>
                 </div>
                 
-                <s:form action="signUpAction">
+                <s:form id="signUpForm" action="signUpAction">
                     <div class="form-group">                        
-                        <s:textfield key="name" name="name" type="text" class="form-control" placeholder="Name" aria-describedby="basic-addon1" />
+                        <s:textfield id="nameSignUp" key="Nome" name="name" type="text" class="form-control" placeholder="Nome" aria-describedby="basic-addon1" />
                     </div>
 
                     <div class="form-group">                        
-                        <s:textfield key="username" key="username" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" />
+                        <s:textfield id="usernameSignUp" key="Usuário" name="username" type="text" class="form-control" placeholder="Usuário" aria-describedby="basic-addon1" />
                     </div>
 
                     <div class="form-group">                        
-                        <s:textfield key="email" name="email" type="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1" />
+                        <s:textfield id="emailSignUp" key="Email" name="email" type="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1" />
                     </div>
 
                     <div class="form-group">                        
-                        <s:textfield key="password" name="password" type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1" />
+                        <s:textfield id="passwordSignUp" key="Senha" name="password" type="password" class="form-control" placeholder="Senha" aria-describedby="basic-addon1" />
                     </div>
 
                     <div class="form-group">                        
-                        <s:textfield key="confirmPassword" name="confirmPassword" type="password" class="form-control" placeholder="Confirm Password" aria-describedby="basic-addon1" />
+                        <s:textfield id="confirmPassSignUp" key="Confirme a senha" name="confirmPassword" type="password" class="form-control" placeholder="Confirme a senha" aria-describedby="basic-addon1" />
                     </div>
-                        <s:submit value="Registrar" type="submit" class="btn btn-success" />
+                        <!--<s:submit value="Registrar" type="submit" class="btn btn-success" />-->
                 </s:form>
+                </br>
+                <div class="row">
+                    <button id="btnSignUp" type="button" class="btn btn-success">Registrar</button>
+                </div>
             </div>
         </div>
         
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

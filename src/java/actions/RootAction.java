@@ -20,8 +20,8 @@ import org.apache.struts2.dispatcher.SessionMap;
 public class RootAction extends ActionSupport{
     //public static final String BASEROOT = "/home/aluno/Documentos/rootDic";
     //public static final String BASEROOT = "/home/bonfim/Documentos/rootDic";
-    //public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
-    public static final String BASEROOT = "C:\\Users\\369909.UFCVIRTUAL\\Documents\\rootDic";
+    public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
+    //public static final String BASEROOT = "C:\\Users\\369909.UFCVIRTUAL\\Documents\\rootDic";
     
     private List<File> files;
     private String user;
@@ -31,11 +31,11 @@ public class RootAction extends ActionSupport{
     @Override
     public String execute() throws Exception {
         sessionMap = (SessionMap) ActionContext.getContext().getSession();
-        user = "loginFalso";
+        user = (String)sessionMap.get("user");
         File f = null;
         if (cPath == null){
-            cPath = BASEROOT;//+ username
-            f = new File(BASEROOT);//+ username
+            cPath = BASEROOT+"\\"+user;//+ username
+            f = new File(cPath);//+ username
         } else{
             f = new File(cPath);
         }
