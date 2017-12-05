@@ -18,9 +18,9 @@ import org.apache.struts2.dispatcher.SessionMap;
  * @author bonfim
  */
 public class RootAction extends ActionSupport{
-    //public static final String BASEROOT = "/home/aluno/Documentos/rootDic";
+    public static final String BASEROOT = "/home/aluno/Documentos/rootDic";
     //public static final String BASEROOT = "/home/bonfim/Documentos/rootDic";
-    public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
+    //public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
     //public static final String BASEROOT = "C:\\Users\\369909.UFCVIRTUAL\\Documents\\rootDic";
     
     private List<File> files;
@@ -40,7 +40,7 @@ public class RootAction extends ActionSupport{
         }
         File f = null;
         if (cPath == null){
-            cPath = BASEROOT+"\\"+user;//+ username
+            cPath = BASEROOT+"/"+user;//+ username
             f = new File(cPath);//+ username
         } else{
             f = new File(cPath);
@@ -55,6 +55,12 @@ public class RootAction extends ActionSupport{
     }
 
     public String createDirectory() throws Exception{
+        sessionMap = (SessionMap) ActionContext.getContext().getSession();
+        user = (String)sessionMap.get("user");
+        if(user == null){
+            permissionDeniedError = true;
+            return "error";
+        }
         if(ArquivoDAO.addDirectory(cPath, newDirectoryName)){
             return "success";
         }else{

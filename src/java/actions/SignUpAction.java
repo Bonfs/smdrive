@@ -20,7 +20,8 @@ import org.apache.struts2.dispatcher.SessionMap;
  * @author aluno
  */
 public class SignUpAction extends ActionSupport {
-    public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
+    public static final String BASEROOT = "/home/aluno/Documentos/rootDic";
+    //public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
     private String name, username, email, password, confirmPassword;
     private SessionMap<String, Object> sessionMap;
     

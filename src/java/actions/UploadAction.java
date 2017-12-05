@@ -17,16 +17,21 @@ import org.apache.commons.io.FileUtils;
  * @author bonfim
  */
 public class UploadAction extends ActionSupport{
-    public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
+    //public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
     
-    private File fileUpload;
-    private String fileUploadContentType;
-    private String fileUploadFileName, cPath;
+    public File fileUpload;
+    public String fileUploadContentType;
+    public String fileUploadFileName, cPath;
     
     @Override
-    public String execute() throws IOException  {        
-        File fileToCreate = new File(BASEROOT, fileUpload.getName());
-        FileUtils.copyFile(fileUpload, fileToCreate);
+    public String execute() {        
+        String filePath = "/home/aluno/";
+        File fileToCreate = new File(filePath, getFileUploadFileName());
+        try {
+            FileUtils.copyFile(fileUpload, fileToCreate);
+        } catch (IOException ex) {
+            Logger.getLogger(ex.getMessage());
+        }
         return "success";
     }
 

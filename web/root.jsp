@@ -58,7 +58,8 @@
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                             <li>
-                                <a>Editar Perfil</a>
+                                <s:url action="editUser" var="editUser" value="editUser"></s:url>
+                                <a href="${editUser}">Editar Perfil</a>
                             </li>
                             <li>
                                 <s:url action="logout" var="logout" value="logout"></s:url>

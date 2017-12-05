@@ -19,8 +19,8 @@
             <s:submit value="criar" type="submit" class="btn btn-success"/>
         </s:form>-->
         
-        <s:form id="uploadForm" action="upload" enctype="multipart/form-data">
-            <s:file key="fileUpload" name="fileUpload" label="Carregar Arquivo" id="fileUpload" />
+        <s:form id="uploadForm" action="upload" method="POST" enctype="multipart/form-data">
+            <s:file  name="fileUpload" label="Carregar Arquivo" id="fileUpload" size="20" />
             <s:submit value="enviar" type="submit" class="btn btn-success"/>
         </s:form>
     </body>

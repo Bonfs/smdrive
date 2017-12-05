@@ -3,7 +3,7 @@
   "-// Apache Software Foundation//DTD Struts Configuration 2.0//EN"
   "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-    <constant name="struts.devMode" value="true" />
+    <constant name="struts.devMode" value="false" />
     <constant name="struts.enable.SlashesInActionNames" value="true"/>
     <constant name="struts.multipart.maxSize" value="53477376" />
     
@@ -35,6 +35,18 @@
             
         </action>
         
+        <action name="editUser" class="actions.EditUserAction">
+            <result name="success">/editUser.jsp</result>
+            <result name="error">/index.jsp</result>
+            
+        </action>
+        
+        <action name="deleteUser" class="actions.EditUserAction" method="deleteAccount">
+            <result name="error">/editUser.jsp</result>
+            <result name="success">/index.jsp</result>
+            
+        </action>
+        
         <action name="newDirectory" class="actions.RootAction" method="createDirectory">
             <result name="success" type="redirectAction">root</result>
             <result name="error" type="redirectAction">root</result>
@@ -52,9 +64,7 @@
         </action>
         
         <action name="upload" class="actions.UploadAction">
-            <interceptor-ref name="fileUpload"></interceptor-ref>
-            <interceptor-ref name="defaultStack"></interceptor-ref>
-            <result name="success" type="redirectAction">root</result>
+            <result name="success">/404.jsp</result>
             <result name="error">/index.jsp</result>
         </action>
     </package>

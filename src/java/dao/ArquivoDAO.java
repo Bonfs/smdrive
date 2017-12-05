@@ -25,13 +25,14 @@ public class ArquivoDAO {
         //System.out.println((String) sessionMap.get("user"));
         User user = DatabaseDAO.getUserByUsername((String) sessionMap.get("user"));
         //System.out.println(user.getName());
-        File directory = new File(path+"\\"+directoryName);
+        File directory = new File(path+"/"+directoryName);
         if(user != null && !directory.exists()){
             Arquivo novoDiretorio = new Arquivo();
             novoDiretorio.setName(directoryName);
             novoDiretorio.setIsDirectory(true);
             novoDiretorio.setSize(0);
             novoDiretorio.setPath(directory.getPath());
+            novoDiretorio.setRootDirectory(user.getRootDirectory());
             //System.out.println(user.getRootDirectory().getUser());
             user.getRootDirectory().getFiles().add(novoDiretorio);
             if(DatabaseDAO.update(user)){

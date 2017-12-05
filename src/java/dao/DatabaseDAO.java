@@ -35,6 +35,15 @@ public class DatabaseDAO {
         return true;
     }
     
+    public static boolean delete(Object obj){
+        Session session = HibernateUtil.getSession();
+        Transaction tx = session.beginTransaction();
+        session.delete(obj);
+        tx.commit();
+        session.close();
+        return true;
+    }
+    
     public static User getUserByUsername(String username){
         User user = null;
         Session session = HibernateUtil.getSession();
@@ -55,17 +64,5 @@ public class DatabaseDAO {
         session.close();
         System.out.println(user.getRootDirectory().getPath());
         return user;
-    }
-    
-    public boolean read(){
-        return true;
-    }
-    
-    public boolean update(){
-        return true;
-    }
-    
-    public boolean delete(){
-        return true;
     }
 }

@@ -39,11 +39,12 @@ public class SessionFilter implements Filter{
                 || uri.equals("/smdrive/signup.jsp")
                 || uri.equals("/smdrive/root.jsp")
                 || uri.equals("/smdrive/404.jsp")
+                || uri.equals("/smdrive/editUser.jsp")
                 || uri.equals("/smdrive/css/style.css")
                 || uri.equals("/smdrive/css/bootstrap.min.css")
                 || uri.equals("/smdrive/js/jquery.min.js")
                 || uri.equals("/smdrive/js/bootstrap.min.js")) ){
-            SessionMap<String, Object>sessionMap = (SessionMap) ActionContext.getContext().getSession();
+            //SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
             //if(uri.equals("/smdrive/") || uri.equals("/smdrive/index.jsp") || uri.equals("/smdrive/signup.jsp")){}
             chain.doFilter(request, response);     
         } else{

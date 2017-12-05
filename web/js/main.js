@@ -74,4 +74,9 @@ $(document).ready(function(){
        }
        
     });
+    
+    $("#btnDeleteUser").click(function(){
+        console.log('ssadad');
+        document.forms.deleteUserForm.submit();
+    });
 });
