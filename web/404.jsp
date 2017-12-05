@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>404 - Página não encontrada</title>
     </head>
     <body>
         <h1>New directory</h1>
@@ -20,8 +20,7 @@
         </s:form>-->
         
         <s:form id="uploadForm" action="upload" enctype="multipart/form-data">
-            <s:file key="fileUpload" name="fileUpload" label="Load File" id="fileUpload" />
-            <s:hidden key="cPath" name="cPath" value="C:\\Users\\mathe\\Documents\\rootDic" ></s:hidden>
+            <s:file key="fileUpload" name="fileUpload" label="Carregar Arquivo" id="fileUpload" />
             <s:submit value="enviar" type="submit" class="btn btn-success"/>
         </s:form>
     </body>

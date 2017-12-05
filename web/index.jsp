@@ -27,6 +27,9 @@
                 <s:if test="error">
                     <div id="errorMsgLogin" class="alert alert-danger" role="alert">Usuário ou senha inválidos!!!</div>
                 </s:if>
+                <s:if test="permissionDeniedError">
+                    <div id="errorpermissionDeniedError" class="alert alert-danger" role="alert">Você deve estar logado para acessar essa funcionalidade!</div>
+                </s:if>
                 <div id="errorMsgLogin" class="hidden alert alert-danger" role="alert">Usuário ou senha inválidos!!!</div>
                 <div class="row">
                     <s:form id="loginForm" action="loginAction" method="POST">

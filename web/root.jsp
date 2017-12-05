@@ -37,7 +37,7 @@
                     <ul class="dropdown-menu">
                         <li>
                             <s:form id="uploadForm" action="upload" method="POST" enctype="multipart/form-data">
-                                <a href="#"><s:file key="fileUpload" name="fileUpload" label="Load File" size="20" id="uploadFile"></s:file></a>
+                                <s:file key="fileUpload" name="fileUpload" label="Load File" size="20" id="uploadFile"></s:file>
                                 <s:hidden key="cPath" name="cPath" value="%{cPath}" ></s:hidden>
                             </s:form>
                         </li>
@@ -57,7 +57,13 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a href="index.html">log off</a></li>
+                            <li>
+                                <a>Editar Perfil</a>
+                            </li>
+                            <li>
+                                <s:url action="logout" var="logout" value="logout"></s:url>
+                                <a href="${logout}">Deslogar</a>
+                            </li>
                       </ul>
                     </li>
                 </ul>
@@ -66,6 +72,9 @@
         </nav>
         
         <s:property value="user" />
+        <s:if test="newDirectoryError">
+            <div id="errorpermissionDeniedError" class="alert alert-danger" role="alert">Você deve estar logado para acessar essa funcionalidade!</div>
+        </s:if>
         <s:if test="getSessionMap().get(\"login\")">
             <p>usuário logado</p>
         </s:if>

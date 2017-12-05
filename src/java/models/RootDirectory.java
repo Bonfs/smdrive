@@ -36,7 +36,7 @@ public class RootDirectory implements Serializable{
     @OneToOne(mappedBy = "rootDirectory")
     private User user; 
         
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Arquivo.class)
     private List<Arquivo> files;
     
     @Column(nullable = false)

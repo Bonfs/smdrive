@@ -17,37 +17,26 @@ import org.apache.commons.io.FileUtils;
  * @author bonfim
  */
 public class UploadAction extends ActionSupport{
-    //public static final String BASEROOT = "/home/aluno/Documentos/rootDic";
     public static final String BASEROOT = "C:\\Users\\mathe\\Documents\\rootDic";
     
-    private File uf;
+    private File fileUpload;
     private String fileUploadContentType;
-    private String fileUploadName, cPath;
+    private String fileUploadFileName, cPath;
     
     @Override
-    public String execute()  {        
-        try {
-            File newFile = new File(BASEROOT+"\\"+uf.getName());
-            FileUtils.copyFile(uf, newFile);
-        } catch (IOException ex) {
-            Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
-            return "error";
-        } catch (NullPointerException npe){
-            System.out.println(npe.getMessage());
-            return "error";
-        }
+    public String execute() throws IOException  {        
+        File fileToCreate = new File(BASEROOT, fileUpload.getName());
+        FileUtils.copyFile(fileUpload, fileToCreate);
         return "success";
-    }   
-
-    public File getUf() {
-        return uf;
     }
 
-    public void setUf(File uf) {
-        this.uf = uf;
+    public File getFileUpload() {
+        return fileUpload;
     }
-    
-    
+
+    public void setFileUpload(File fileUpload) {
+        this.fileUpload = fileUpload;
+    }
 
     public String getFileUploadContentType() {
         return fileUploadContentType;
@@ -56,23 +45,20 @@ public class UploadAction extends ActionSupport{
     public void setFileUploadContentType(String fileUploadContentType) {
         this.fileUploadContentType = fileUploadContentType;
     }
-    
-    public String getFileUploadName() {
-        return fileUploadName;
+
+    public String getFileUploadFileName() {
+        return fileUploadFileName;
     }
 
-    public void setFileUploadName(String fileUploadName) {
-        this.fileUploadName = fileUploadName;
+    public void setFileUploadFileName(String fileUploadFileName) {
+        this.fileUploadFileName = fileUploadFileName;
     }
-
+   
     public String getcPath() {
         return cPath;
     }
 
     public void setcPath(String cPath) {
         this.cPath = cPath;
-    }     
-    
-    
-    
+    }
 }

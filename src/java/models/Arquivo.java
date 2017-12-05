@@ -37,7 +37,7 @@ public class Arquivo {
     @Column(nullable = false)
     private boolean isDirectory;
     
-    @ManyToOne
+    @ManyToOne(targetEntity = RootDirectory.class)
     private RootDirectory rootDirectory;
 
     public Long getID() {

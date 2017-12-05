@@ -6,7 +6,6 @@
     <constant name="struts.devMode" value="true" />
     <constant name="struts.enable.SlashesInActionNames" value="true"/>
     <constant name="struts.multipart.maxSize" value="53477376" />
-    <constant name="struts.multipart.parser" value="jakarta-stream" />
     
     <package name="default" extends="struts-default">
         <action name="loginAction" class="actions.LoginAction">
@@ -22,17 +21,23 @@
         
         <action name="root" class="actions.RootAction">
             <result name="success">/root.jsp</result>
+            <result name="error">/index.jsp</result>
             
         </action>
         
         <action name="root/*" class="actions.RootAction">
             <result name="success">/root.jsp</result>
+            <result name="error">/index.jsp</result>
+        </action>
+        
+        <action name="logout" class="actions.LoginAction" method="logout">
+            <result name="success">/index.jsp</result>
             
         </action>
         
         <action name="newDirectory" class="actions.RootAction" method="createDirectory">
             <result name="success" type="redirectAction">root</result>
-            <result name="error">/404.jsp</result>
+            <result name="error" type="redirectAction">root</result>
             
         </action>
         
@@ -47,13 +52,8 @@
         </action>
         
         <action name="upload" class="actions.UploadAction">
-            <interceptor-ref name="basicStack"/>
-            <interceptor-ref name="fileUpload">
-                    <param name="maximumSize">70000</param>
-            </interceptor-ref>
-            <interceptor-ref name="fileUpload">
-                <param name="allowedTypes">image/jpeg,image/gif,image/jpg,image/png</param>
-            </interceptor-ref> 
+            <interceptor-ref name="fileUpload"></interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
             <result name="success" type="redirectAction">root</result>
             <result name="error">/index.jsp</result>
         </action>

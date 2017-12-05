@@ -27,6 +27,14 @@ public class DatabaseDAO {
         return true;
     }
     
+    public static boolean update(Object obj){
+        Session session = HibernateUtil.getSession();
+        Transaction tx = session.beginTransaction();
+        session.merge(obj);        
+        tx.commit();
+        return true;
+    }
+    
     public static User getUserByUsername(String username){
         User user = null;
         Session session = HibernateUtil.getSession();
@@ -36,11 +44,9 @@ public class DatabaseDAO {
         //Query query = session.createSQLQuery(sql);
         query.setParameter("username", username);
         List<Object> list = null;
-        try{
-            
+        try{            
             user = (User) query.getSingleResult();
-            list = query.list();
-            
+            list = query.list();            
             tx.commit();
         } catch(Exception e){
             user = null;

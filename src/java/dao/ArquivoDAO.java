@@ -34,7 +34,7 @@ public class ArquivoDAO {
             novoDiretorio.setPath(directory.getPath());
             //System.out.println(user.getRootDirectory().getUser());
             user.getRootDirectory().getFiles().add(novoDiretorio);
-            if(DatabaseDAO.insert(user)){
+            if(DatabaseDAO.update(user)){
                 return directory.mkdir();
             }
             return false;

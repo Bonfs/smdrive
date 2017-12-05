@@ -49,13 +49,14 @@ public class LoginAction extends ActionSupport{
     }
 
     public String logout() throws Exception{
-        sessionMap.invalidate();
+        sessionMap = (SessionMap) ActionContext.getContext().getSession();
         sessionMap.put("name", null);
         sessionMap.remove("name");
         sessionMap.put("login", false);
         sessionMap.remove("login");
+        sessionMap.invalidate();
         sessionMap.entrySet();
-        return "logout";
+        return "success";
     }
 
     public String getPassword() {

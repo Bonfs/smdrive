@@ -27,11 +27,17 @@ public class RootAction extends ActionSupport{
     private String user;
     private String cPath, fileName, newDirectoryName;
     private SessionMap<String, Object> sessionMap;
+    private boolean newDirectoryError, permissionDeniedError;
        
     @Override
     public String execute() throws Exception {
         sessionMap = (SessionMap) ActionContext.getContext().getSession();
         user = (String)sessionMap.get("user");
+        //boolean isLogged = (boolean)sessionMap.get("login");
+        if(user == null){
+            permissionDeniedError = true;
+            return "error";
+        }
         File f = null;
         if (cPath == null){
             cPath = BASEROOT+"\\"+user;//+ username
